@@ -1,0 +1,40 @@
+{% extends 'base.html' %}  
+{% load static %} 
+<head>
+   <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+{% block title %}Data{% endblock title %}          
+
+{% block data-content %} 
+  <div class="container my-5">
+    <div class="row">
+        <h3>Welcome <span class="text-capitalize">{{request.user}}</span></h3>   
+        <div class="col-sm-2 border-end">
+          <ul class="list-unstyled">
+           <li class="d-grid"><a href="{% url 'profile' %}" class="btn btn-primary">Profile</a></li>  
+           <li class="d-grid"><a href="{% url 'data' %}" class="btn">Details</a></li>          
+          </ul>
+       </div>  
+       <div class="col-sm-8 offset-sm-1">  
+          <div class="row">
+             {% for da in dat %} 
+             <div class="col-sm-6">
+                <div class="card m-2">       <!--Bootstrap Cards--> 
+                   <div class="card-body">
+                     <h3>Details</h3> 
+                     <p>Name: {{da.name}}</p> 
+                     <p>Mobile: {{da.mobile}}</p> 
+                     <p>Email: {{da.email}}</p> 
+                     <p>DOB: {{da.bday}}</p>  
+                     <p class="text-center"><a href="{% url 'updateData' pk=da.id%}" type="button" class="btn btn-success">
+                        Update
+                     </a></p>       
+                   </div>
+                </div>
+             </div> 
+             {% endfor %} 
+          </div>
+       </div>
+    </div>
+  </div>
+{% endblock data-content %}   

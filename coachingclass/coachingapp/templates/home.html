@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+{% extends "base.html" %}   
+{% load static %} 
+{% block title %}Home{% endblock title %} 
+{% block home-banner %} 
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Great+Vibes|Pacifico|Lobster|Alex+Brush|Dancing+Script&display=swap"> 
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-HdA53okZLj+g8iLzMQBfQEbI4HxEVZAZU3HGRJjYAMyzja/rfTMjxSVxPZ0VZKxBrQghAg+NmNj9fqZ6IKefuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <style> 
+     .card-container {
+       text-align: center; /* Center align the contents */
+    }
+     .card {
+       width: 700px;
+       height: 150px;
+       background-color: #ADD8E6;  /* Light blue color */
+       color: white;
+       text-align: center;
+       display: inline-block;
+       margin: 10px auto; /* Auto margin horizontally centers the cards */
+       border-radius: 10px; 
+    }
+
+    .number {
+      font-size: 24px;
+      font-weight: bold;
+      color: #f0f0f0; /* Dark white color */
+      text-shadow: 1px 1px 1px #888; /* Adding a shadow for style */
+      margin-bottom: 5px;
+    }
+
+    .text {
+      font-size: 16px;
+      color: #f0f0f0; /* Light white color */
+      font-family: fantasy;
+    }
+    
+    .carousel-text {
+      position: absolute;
+      top: 10%;
+      left: 10%;
+      color: black ;
+      text-align: left;
+      font-family: 'Raleway', sans-serif;;
+    }
+    
+    .word {
+      display: inline-block;
+      opacity: 0;
+      animation: fadeInLeft 1s ease-in-out forwards;
+    }
+    
+    .line {
+      display: block;
+    }
+
+    @keyframes fadeInLeft {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }  
+
+    /* CSS for slide-in notification */
+    .notification-container {
+        position: fixed;
+        bottom: 140px; 
+        right: 100px; 
+        background-color: #e5f5e5;;
+        padding: 25px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        animation: slide-in 0.5s ease-out forwards;
+        display: none; /* Initially hide the notification */  
+        max-width: 900px; /* Increased max-width */
+        font-size: 18px; /* Increased font size */
+    }    
+
+    .notification-message {
+        font-size: 20px; /* Increased font size */  
+        color: #006400; /* Dark green text color */
+        font-weight: bold; /* Bold text */ 
+        font-family: 'Pacifico', cursive; /* Cursive font */
+    }
+
+    @keyframes slide-in {
+        from {
+            transform: translateX(100%);
+        }
+        to {
+            transform: translateX(0);
+        }
+    } 
+    .cake {
+        position: absolute;
+        bottom: 100px; /* Adjusted position */
+        right: 50px; /* Adjusted position */
+        width: 100px;
+        height: auto;
+        z-index: 100; /* Ensure it's above other elements */
+        animation: float-cake 3s infinite alternate; /* Animation for floating effect */
+    }
+    .balloon {
+        position: absolute;
+        bottom: 50px; /* Adjusted position */
+        right: 50px; /* Adjusted position */
+        width: 50px;
+        height: auto;
+        z-index: 100; /* Ensure it's above other elements */
+        animation: float-balloon 4s infinite alternate; /* Animation for floating effect */
+    } 
+    @keyframes float-cake {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-20px);
+        }
+    } 
+    @keyframes float-balloon {
+        from {
+            transform: translateY(0);
+        }
+        to {
+            transform: translateY(-10px);
+        }
+    } 
+
+    .icon {
+      font-size: 24px; /* Adjust the icon size */
+      margin-bottom: 10px; /* Adjust the spacing between the icon and the number */
+    }
+    
+    .welcome-text {
+  color: black; /* Default text color */ 
+  text-align: center; 
+}
+
+.first-line {
+  font-size: 40px; /* Greater font size */
+  font-weight: bold; /* Bold text */
+  color: #004080; /* Dark blue color */ 
+  text-align: center;  
+  margin-top: 70px; /* Adjust the spacing between the banner and the welcome text */ 
+  font-family: 'Merriweather', sans-serif;
+}
+
+.highlight {
+  color: #004080; /* Dark blue color */
+}
+
+.second-line {
+  font-size: 18px; /* Less font size compared to the first line */
+  color: #004080; /* Dark blue color */ 
+  text-align: center;  
+  margin-top: 45px;  
+  font-family: 'Merriweather', sans-serif;
+}
+
+.third-line {
+  font-size: 23px; /* Normal font size */ 
+  text-align:  justify; 
+  max-width: 80%; /* Set a maximum width to prevent content from overflowing */
+  margin: 0 auto; /* Center the element horizontally */ 
+  margin-top: 28px; 
+  margin-bottom: 50px; 
+  font-family: 'Raleway', sans-serif;
+}  
+
+/*.container {
+  text-align: justify;
+}*/ 
+
+.specialties-box {
+      background-color: #f0f0f0; /* Very light grey background color */
+      padding: 20px;
+      text-align: center;
+      margin: 50px auto; /* Center the box horizontally */
+      width: 100%; /* Adjust the width as needed */
+    }
+    .specialties-list {
+      margin-top: 20px;
+      display: flex;
+      justify-content: space-around;
+    }
+
+    .specialty { 
+      position: relative; /* Add relative positioning to the parent div */
+      padding: 10px; /* Add padding around each item */
+      border-radius: 5px; 
+      font-family: 'Raleway', sans-serif; 
+      margin-bottom: 10px;
+      margin-top: 40px;
+    }
+    .our-speciality {
+  font-size: 30px; /* Greater font size */ 
+  height: 100px;
+  font-weight: bold; /* Bold text */
+  color: #004080; /* Dark blue color */ 
+  text-align: center;  
+  margin-top: 2px; /* Adjust the spacing between the banner and the welcome text */ 
+  font-family: 'Merriweather', sans-serif;
+}  
+
+.specialty-icon { 
+      position: absolute;
+      top: -100px; /* Adjust the vertical position of the icon */
+      left: 50%; /* Center the icon horizontally */
+      transform: translateX(-50%); /* Center the icon horizontally */
+      font-size: 90px; /* Adjust the icon size */
+      color: #004080; /* Dark blue color */
+      z-index: 1; /* Ensure icons appear above other content */
+    } 
+
+  .space{
+    margin-top: 20px;
+  } 
+  </style>
+</head>
+<body> 
+  
+ <div id="carouselExample" class="carousel slide">  
+  <div class="carousel-inner">  
+    <div class="carousel-item active"> 
+      <img src="{% static 'images/banners/banner1.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 1"> 
+      <div class="carousel-text">
+        <h1 class="animated-text">
+          <span class="word line">Welcome to the Best Institute</span>
+          <span class="word line">for CBSE and GSEB(English Medium) </span> 
+          <span class="word line">Classes I to XII</span> 
+        </h1> 
+        <!--Birthday notification-->  
+          <div class="notification-container"> 
+            <img src="{% static 'images/banners/cake.jpg' %}" class="cake" alt="Cake">
+            <img src="{% static 'images/banners/balloon.jpg' %}" class="balloon" alt="Balloon">
+            <span class="notification-message">{{ notification }}</span>
+          </div>  
+      </div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'images/banners/banner2.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 2">
+      <div class="carousel-text">
+        <h1 class="animated-text">
+          <span class="word line">Welcome to the Best Institute</span>
+          <span class="word line">for CBSE and GSEB(English Medium) </span> 
+          <span class="word line">Classes I to XII</span> 
+        </h1>
+      </div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'images/banners/banner3.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 3">
+      <div class="carousel-text">
+        <h1 class="animated-text">
+          <span class="word line">Welcome to the Best Institute</span>
+          <span class="word line">for CBSE and GSEB(English Medium) </span> 
+          <span class="word line">Classes I to XII</span>
+        </h1>  
+        <!-- Birthday notification-->
+        <!--{% if notification %}
+          <div>{{ notification }}</div>
+        {% endif %}-->
+      </div>
+    </div> 
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>  
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+    <span class="visually-hidden">Next</span> 
+  </button>    
+ </div>   
+
+ <div class="welcome-text">
+  <p class="first-line">Welcome to <span class="highlight">AJ Tutorials, Vadodara</span></p>
+  <p class="second-line">The Way of Success</p>
+  <p class="third-line">AJ Tutorials is committed to the way of success, in every opportunity from classes I to XII. We assure the development of every child. Our teachers are well-qualified, well-experienced, and tech-friendly. We focus on proper time management and success most affordable fee structure. We prepare students from CBSE, GSEB and NCERT curriculum. Your hard work, passion and dedication, our planning and execution; together we will achieve your ambition and success.</p>
+ </div> 
+
+
+
+ <div class="card-container">
+ <div class="card" style="background-color: #3498db;"> 
+   <div class="icon"><i class="fas fa-home"></i></div>
+   <div class="number" style="font-size: 24px; font-weight: bold; color: #f0f0f0; text-shadow: 1px 1px 1px #888; margin-bottom: 5px;">
+    <span style="font-size: 50px;" class="counter" data-target="5">1</span>+</div>
+   <div class="text" style="font-size: 17px; color: #f0f0f0;">Years of Experience</div>
+ </div>
+
+ <div class="card" style="background-color: #3498db;"> 
+   <div class="icon"><i class="fas fa-user"></i></div>
+   <div class="number" style="font-size: 24px; font-weight: bold; color: #f0f0f0; text-shadow: 1px 1px 1px #888; margin-bottom: 5px;">
+    <span style="font-size: 50px;" class="counter" data-target="200">1</span>+</div>
+   <div class="text" style="font-size: 17px; color: #f0f0f0; ">Students Taught</div>
+ </div>
+
+ <div class="card" style="background-color: #3498db;"> 
+   <div class="icon"><i class="fas fa-trophy"></i></div>
+   <div class="number" style="font-size: 24px; font-weight: bold; color: #f0f0f0; text-shadow: 1px 1px 1px #888; margin-bottom: 5px;">
+    <span style="font-size: 50px;" class="counter" data-target="100">1</span>%</div> 
+   <div class="text" style="font-size: 17px; color: #f0f0f0;">Academic Growth</div>
+ </div> 
+ </div> 
+ 
+ <div class="specialties-box">
+  <h2 class="our-speciality">Our Specialties</h2>
+  <div class="specialties-list">
+  <div class="specialty">
+    <div class="specialty-icon"><i class="fas fa-rupee-sign"></i></div>
+    <!-- Rupee icon --> <div class="space">Affordable</div></div>
+    <div class="specialty">
+      <div class="specialty-icon"><i class="fas fa-user-tie"></i></div> 
+    <!-- User Tie icon --> <div class="space">Experienced Staff</div> </div> 
+    <div class="specialty">
+      <div class="specialty-icon"><i class="fas fa-check"></i></div> 
+    <!-- Check mark icon --><div class="space"> 100% Result Oriented</div></div> 
+    <div class="specialty">
+      <div class="specialty-icon"><i class="fas fa-user"></i></div> 
+    <!-- Single User icon --><div class="space">Personal Attention</div></div>
+  </div>
+</div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script> 
+
+  <script>
+    $(document).ready(function () {
+      // Animation on carousel slide change
+      $('#carouselExample').on('slide.bs.carousel', function () {
+        animateWords();
+      });
+  
+      // Initial animation
+      animateWords();
+  
+      function animateWords() {
+        $('.animated-text .word').each(function (index) {
+          $(this).css({
+            'animation-delay': (index * 0.5) + 's'
+          });
+        });
+      }
+    }); 
+    
+     // Reset animation after completion
+     setTimeout(function () {
+      $('.animated-text .word').css({
+        'animation-delay': '0s'
+      });
+    }, 5000); // Adjust the time (in milliseconds) to repeat the animation
+    /*window.onload = function() {
+            // Check if the notification exists
+            var notification = "{{ notification }}";
+            if (notification) {
+                // Show the notification container
+                var notificationContainer = document.querySelector('.notification-container');
+                notificationContainer.style.display = 'block';
+
+                // Update the notification message
+                var notificationMessage = document.querySelector('.notification-message');
+                notificationMessage.textContent = notification;
+            }
+        }; */  
+
+        window.onload = function() {
+            // Check if the notification exists
+            var notification = "{{ notification }}";
+            if (notification) {
+                // Show the notification container
+                var notificationContainer = document.querySelector('.notification-container');
+                notificationContainer.style.display = 'block';
+
+                // Update the notification message
+                var notificationMessage = document.querySelector('.notification-message');
+                notificationMessage.textContent = notification;
+            } else {
+                // Hide the notification container if no notification
+                var notificationContainer = document.querySelector('.notification-container');
+                notificationContainer.style.display = 'none';
+            }
+        };  
+        
+        window.onload = function() {
+        // Check if the notification exists and is not empty
+        var notification = "{{ notification }}";
+        if (notification.trim() !== "") {
+            // Show the notification container
+            var notificationContainer = document.querySelector('.notification-container');
+            notificationContainer.style.display = 'block';
+
+            // Update the notification message
+            var notificationMessage = document.querySelector('.notification-message');
+            notificationMessage.textContent = notification;
+        }
+    };
+
+        $(window).on('load', function() {
+        $('.notification-container').fadeIn().animate({
+            right: '20px' // Adjusted position from the right
+        }, 500);
+    });  
+    
+     // Function to start the counter from 1 and increment to the original value
+function startCounter(counter, target) {
+  var current = 1;
+  var increment = Math.ceil(target / 50); // Adjust the speed of increment here
+
+  var timer = setInterval(function() {
+    current += increment;
+    counter.innerText = current;
+    if (current >= target) {
+      clearInterval(timer);
+      counter.innerText = target;
+    }
+  }, 30); // Adjust the interval here
+}
+
+// Trigger the counter when the cards are in the viewport
+window.addEventListener('scroll', function() {
+  var cards = document.querySelectorAll('.card');
+  cards.forEach(function(card) {
+    var rect = card.getBoundingClientRect();
+    var counter = card.querySelector('.counter');
+    var target = parseInt(counter.getAttribute('data-target')); // Get the target value from data-target attribute
+
+    if (
+      rect.top >= 0 &&
+      rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+      !counter.dataset.started // Check if the counter animation has not been started
+    ) {
+      if (!isNaN(target)) { // Check if the target value is a valid number
+        startCounter(counter, target); // Start the counter animation
+        counter.dataset.started = true; // Mark the counter as started
+      }
+    }
+  });
+});
+
+
+    
+
+
+
+
+
+  </script>  
+
+  
+</body>
+{% endblock home-banner %}  
+</html> 
+

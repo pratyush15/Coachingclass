@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+{% extends "base.html" %}   
+{% load static %} 
+<head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+{% block title %}Services{% endblock title %}  
+{% block services-banner %}  
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-HdA53okZLj+g8iLzMQBfQEbI4HxEVZAZU3HGRJjYAMyzja/rfTMjxSVxPZ0VZKxBrQghAg+NmNj9fqZ6IKefuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" /> 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script> 
+
+  <style>  
+      .carousel-item {
+      position: relative;
+      width: 100%;
+    }
+     .carousel-text {
+      position: absolute;
+      top: 100px;
+      left: 200px;
+      color: #000; /* Dark color for the text */
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Raleway', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to improve readability */
+      z-index: 1; /* Ensure the text appears above the image */
+    }
+        .container {
+            text-align: center; /* Center align the content */
+        }
+        
+        .first-text {
+  color: black; /* Default text color */ 
+  text-align: center; 
+}
+
+.first-line {
+  font-size: 40px; /* Greater font size */
+  font-weight: bold; /* Bold text */
+  color: #004080; /* Dark blue color */ 
+  text-align: center;  
+  margin-top: 70px; /* Adjust the spacing between the banner and the welcome text */ 
+  font-family: 'Merriweather', sans-serif;
+} 
+
+.next-line {
+  font-size: 23px; /* Normal font size */ 
+  text-align:  justify; 
+  max-width: 80%; /* Set a maximum width to prevent content from overflowing */
+  margin: 0 auto; /* Center the element horizontally */ 
+  margin-top: 28px; 
+  margin-bottom: 50px; 
+  font-family: 'Raleway', sans-serif;
+}  
+
+  </style>
+</head> 
+<body>
+ <div id="carouselExample" class="carousel slide">  
+  <div class="carousel-inner">  
+    <div class="carousel-item active"> 
+      <img src="{% static 'images/banners/banner1.jpg' %}" class="d-block w-100" height="600"alt="Banner Image 1"> 
+      <div class="carousel-text">Our Services</div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'images/banners/banner2.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 2">
+     <div class="carousel-text">Our Services</div>
+    </div>
+    <div class="carousel-item">
+     <img src="{% static 'images/banners/banner3.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 3">
+     <div class="carousel-text">Our Services</div>
+    </div> 
+  </div> 
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>  
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+    <span class="visually-hidden">Next</span> 
+  </button>    
+</div> 
+{% endblock services-banner %}  
+{% block services-info %} 
+<div class="first-text">
+    <p class="first-line">For <span class="highlight">English Medium</span></p>
+    <p class="next-line">We conduct classes of I to XII for English Medium. We teach the syllabus as prescribed by latest CBSE and GSEB (Gujarat Board). For classes 
+        IX to XII CBSE we cover syllabus as per latest NCERT curriculum. </p>
+</div> 
+
+<div class="first-text">
+    <p class="first-line">For <span class="highlight">Gujarati Medium</span></p>
+    <p class="next-line">We conduct classes of I to X for Gujarati Medium. We teach the syllabus as prescribed by their respective schools and institutions.  </p>
+</div>
+{% endblock services-info %} 
+</body>
+</html>

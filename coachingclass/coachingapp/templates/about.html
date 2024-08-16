@@ -1,0 +1,177 @@
+<!DOCTYPE html> 
+{% extends "base.html" %}   
+{% load static %}
+{% block title %}About Us{% endblock title %}  
+{% block about-banner %} 
+<head> 
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-HdA53okZLj+g8iLzMQBfQEbI4HxEVZAZU3HGRJjYAMyzja/rfTMjxSVxPZ0VZKxBrQghAg+NmNj9fqZ6IKefuA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet"> 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}"> 
+  <style> 
+      .carousel-item {
+      position: relative;
+      width: 100%;
+    }
+     .carousel-text {
+      position: absolute;
+      top: 100px;
+      left: 200px;
+      color: #000; /* Dark color for the text */
+      font-size: 36px;
+      font-weight: bold;
+      font-family: 'Raleway', sans-serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow to improve readability */
+      z-index: 1; /* Ensure the text appears above the image */
+    }
+    .row-container {
+      text-align: left;
+    } 
+     
+    .welcome-text {
+    color: black; /* Default text color */ 
+    text-align: center; 
+  }  
+
+  .first-line {
+  font-size: 40px; /* Greater font size */
+  font-weight: bold; /* Bold text */
+  color: #004080; /* Dark blue color */ 
+  text-align: center;  
+  margin-top: 70px; /* Adjust the spacing between the banner and the welcome text */ 
+  font-family: 'Merriweather', sans-serif;
+  } 
+
+  .highlight {
+    color: #004080; /* Dark blue color */
+  } 
+
+  .next-line {
+  font-size: 23px; /* Normal font size */ 
+  text-align:  justify; 
+  max-width: 80%; /* Set a maximum width to prevent content from overflowing */
+  margin: 0 auto; /* Center the element horizontally */ 
+  margin-top: 28px; 
+  margin-bottom: 50px; 
+  font-family: 'Raleway', sans-serif;
+}  
+
+.container {
+            text-align: center; /* Center align the content */
+        } 
+
+.box {
+    width: 510px; /* Set the width of the box */
+    height: 235px; 
+    background-color: #f0f0f0;  /* Grey background color */
+    padding: 20px; /* Add some padding */
+    margin: 20px; /* Add some margin */
+    display: inline-block; /* Display the boxes inline */
+    vertical-align: top; /* Align the boxes vertically */
+} 
+
+.heading {
+    color: #004080; /* Dark blue color */
+    font-size: 24px; /* Font size for headings */
+    font-weight: bold; /* Bold font weight */
+    margin-bottom: 10px; /* Add margin below the heading */ 
+    font-family: 'Merriweather', sans-serif;
+} 
+
+.content {
+    color: black; /* Black color for content */
+    font-size: 18px; /* Font size for content */ 
+    font-family: 'Raleway', sans-serif; 
+    text-align: justify;
+} 
+
+.icon { 
+    font-size: 36px; /* Adjust the icon size */
+    color: #004080; /* Dark blue color for the icon */
+    margin-bottom: 10px; /* Add margin below the icon */
+}
+
+.plane-icon {
+    /*transform: rotate(-45deg); /* Rotate the airplane icon */ 
+    font-size: 36px; /* Adjust the icon size */
+    color: #004080; /* Dark blue color for the icon */
+    margin-bottom: 10px; /* Add margin below the icon */
+}
+  </style>
+</head> 
+<body>
+  <div id="carouselExample" class="carousel slide">  
+    <div class="carousel-inner">  
+      <div class="carousel-item active"> 
+        <img src="{% static 'images/banners/banner1.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 1">  
+        <div class="carousel-text">About Us</div>
+      </div>
+      <div class="carousel-item">
+       <img src="{% static 'images/banners/banner2.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 2">
+       <div class="carousel-text">About Us</div>
+      </div>
+      <div class="carousel-item">
+       <img src="{% static 'images/banners/banner3.jpg' %}" class="d-block w-100" height="600" alt="Banner Image 3">
+       <div class="carousel-text">About Us</div>
+      </div> 
+    </div> 
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>  
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span> 
+      <span class="visually-hidden">Next</span> 
+    </button>    
+  </div> 
+  {% endblock about-banner %}    
+  
+  {% block about-info %} 
+
+   <!--<div class="container mt-3">
+    <br>
+    <h2 class="text-center">About Us</h2>
+    <br>
+    <div class="row-container">
+      <p class="fs-4 text-center">Welcome to our website. We are a leading provider of academic tutorials for students from class I to XII CBSE and GSEB English Medium since 2018. We also engage our students in various other activities that help them in their overall development.</p>
+    </div>
+    <br/>
+  </div>
+  <br><br>
+  <h2 class="text-center">Mission</h2>
+  <br>
+  <div class="row-container">
+    <p class="fs-4 text-center">To maintain a high standard of integrity and performance 
+      leading to the achievement of academic and professional goals.</p>
+  </div>
+  <br/>-->  
+
+  <div class="welcome-text">
+    <p class="first-line">About <span class="highlight">Us</span></p> 
+    <p class="next-line">Welcome to our website. We are a leading provider of academic tutorials for students from class I to XII CBSE and GSEB English Medium 
+      since 2018. We also engage our students in various other activities that help them in their overall development.
+      We focus on proper time management and success most affordable fee structure. Your hard work, passion and dedication along with our 
+      planning and execution, we will achieve your dreams and success.
+      </p>  
+  </div>
+  <div class="container">
+  <!-- Vision Box -->
+  <div class="box">
+    <div class="icon"><i class="fas fa-eye"></i></div>
+    <div class="heading">Vision</div>
+    <div class="content">To provide coaching to everyone at an affordable rate so as to achieve their academic growth and development.</div>
+  </div>
+
+  <!-- Aim Box -->
+  <div class="box">
+    <div class="plane-icon"><i class="fas fa-plane"></i></div>
+    <div class="heading">Aim</div>
+    <div class="content">To maintain a high standard of integrity and performance leading to the achievement of academic and professional goals.</div>
+  </div> 
+  </div>
+  {% endblock about-info %}   
+</body> 
+</html>
